@@ -17,6 +17,10 @@ ifneq ($(TARGET_BUILD_VARIANT),user)
 bluetooth_CFLAGS += -DBLUEDROID_DEBUG
 endif
 
+ifeq ($(KERNEL_MISSING_CLOCK_BOOTTIME_ALARM),true)
+bluetooth_CFLAGS += -DKERNEL_MISSING_CLOCK_BOOTTIME_ALARM
+endif
+
 bluetooth_CFLAGS += -DEXPORT_SYMBOL="__attribute__((visibility(\"default\")))"
 
 #
